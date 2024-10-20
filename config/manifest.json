@@ -1,4 +1,5 @@
 {
+  "example.css": "/public/css/example.css",
   "example.js": "/public/js/example.js",
   "intro.css": "/public/css/intro.css",
   "intro.js": "/public/js/intro.js",
@@ -20,7 +21,9 @@
         "/public/js/common.js",
         "/public/js/example.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/example.css"
+      ]
     },
     "intro.js": {
       "js": [
