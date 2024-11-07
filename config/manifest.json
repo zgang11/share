@@ -1,89 +1,29 @@
 {
-  "example.css": "/public/css/example.css",
-  "example.js": "/public/js/example.js",
-  "intro.css": "/public/css/intro.css",
-  "intro.js": "/public/js/intro.js",
-  "async.css": "/public/css/async.css",
-  "async.js": "/public/js/async.js",
-  "example/stateless.js": "/public/js/example/stateless.js",
-  "example/node.js": "/public/js/example/node.js",
-  "example/data.js": "/public/js/example/data.js",
-  "example/hook.js": "/public/js/example/hook.js",
-  "example/context.js": "/public/js/example/context.js",
+  "home.js": "/public/js/home.js",
+  "login.js": "/public/js/login.js",
   "runtime.js": "/public/js/runtime.js",
-  "chunk/app_web_page_example_async_component_async-image_jsx.js": "/public/js/chunk/app_web_page_example_async_component_async-image_jsx.js",
+  "common.css": "/public/css/common.css",
   "common.js": "/public/js/common.js",
-  "img/react.png": "/public/img/react.png",
   "deps": {
-    "example.js": {
+    "home.js": {
       "js": [
         "/public/js/runtime.js",
         "/public/js/common.js",
-        "/public/js/example.js"
+        "/public/js/home.js"
       ],
       "css": [
-        "/public/css/example.css"
+        "/public/css/common.css"
       ]
     },
-    "intro.js": {
+    "login.js": {
       "js": [
         "/public/js/runtime.js",
         "/public/js/common.js",
-        "/public/js/intro.js"
+        "/public/js/login.js"
       ],
       "css": [
-        "/public/css/intro.css"
+        "/public/css/common.css"
       ]
-    },
-    "async.js": {
-      "js": [
-        "/public/js/runtime.js",
-        "/public/js/common.js",
-        "/public/js/async.js"
-      ],
-      "css": [
-        "/public/css/async.css"
-      ]
-    },
-    "example/stateless.js": {
-      "js": [
-        "/public/js/runtime.js",
-        "/public/js/common.js",
-        "/public/js/example/stateless.js"
-      ],
-      "css": []
-    },
-    "example/node.js": {
-      "js": [
-        "/public/js/runtime.js",
-        "/public/js/common.js",
-        "/public/js/example/node.js"
-      ],
-      "css": []
-    },
-    "example/data.js": {
-      "js": [
-        "/public/js/runtime.js",
-        "/public/js/common.js",
-        "/public/js/example/data.js"
-      ],
-      "css": []
-    },
-    "example/hook.js": {
-      "js": [
-        "/public/js/runtime.js",
-        "/public/js/common.js",
-        "/public/js/example/hook.js"
-      ],
-      "css": []
-    },
-    "example/context.js": {
-      "js": [
-        "/public/js/runtime.js",
-        "/public/js/common.js",
-        "/public/js/example/context.js"
-      ],
-      "css": []
     }
   },
   "info": {

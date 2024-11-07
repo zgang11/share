@@ -1,0 +1,40 @@
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.img-wrapper {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: serif;
+}
+.logo-text-zh {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: cursive;
+}
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text-t {
+  font-size: 20px;
+  font-weight: bold;
+}
+.img-login {
+  width: 200px;
+  height: 200px;
+}

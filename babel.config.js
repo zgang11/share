@@ -16,7 +16,7 @@ module.exports = {
       "plugins": [
         ["@babel/plugin-proposal-decorators", { "legacy": true }],
         ["@babel/plugin-proposal-class-properties", { "loose": false }],
-        "@babel/plugin-syntax-dynamic-import"
+        "@babel/plugin-syntax-dynamic-import",
       ]
     },
     "web": {
@@ -41,8 +41,10 @@ module.exports = {
         ["@babel/plugin-proposal-class-properties", { "loose": false }],
         "@babel/plugin-transform-runtime",
         "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-proposal-object-rest-spread"
-      ]
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-strict-mode",
+        "transform-remove-strict-mode",
+      ],
     }
   }
 }

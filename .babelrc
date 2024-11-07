@@ -1,9 +1,32 @@
 {
+  "presets": [
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ]
+  ],
   "plugins": [
-    ["import", {
+    "@babel/plugin-transform-object-assign",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-strict-mode",
+    "transform-remove-strict-mode",
+    [
+      "import",
+      {
         "libraryName": "antd",
-        "libraryDirectory": "lib",
-        "style": true
-    }]
-]
+        "style": "css"
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    }
+  }
 }

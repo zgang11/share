@@ -1,0 +1,10 @@
+.header {
+ background-color: #fff;
+ display: flex;
+ justify-content: space-between;
+ padding: 0 80px;
+}
+.logo-icon {
+   width: 32px;
+   height: 32px;
+}

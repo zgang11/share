@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import inlineTest from 'raw-loader!../inline.js';
-export default class Layout extends Component {
+export default class HTML extends Component {
   
   render() {
     const inlineCode = `
@@ -24,7 +24,9 @@ export default class Layout extends Component {
           <script dangerouslySetInnerHTML={{__html: inlineTest }}></script>
           <script>inlineFileTest();inlineCodeTest();</script>
         </head>
-        <body><div id="app">{this.props.children}</div></body>
+        <body>
+          <div id="app">{this.props.children}</div>
+        </body>
       </html>;
     }
     return this.props.children;

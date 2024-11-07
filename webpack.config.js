@@ -5,14 +5,15 @@ const resolve = (filepath) => path.resolve(__dirname, filepath);
 
 module.exports = {
   entry: {
-    example: 'app/web/page/example/index.jsx',
-    intro: 'app/web/page/intro/index.jsx',
-    async: 'app/web/page/example/async/index.jsx',
-    'example/stateless': 'app/web/page/example/stateless.js',
-    'example/node': 'app/web/page/example/node.jsx',
-    'example/data': 'app/web/page/example/data.jsx',
-    'example/hook': 'app/web/page/example/hook.jsx',
-    'example/context': 'app/web/page/example/context.jsx'
+    home: 'app/web/page/home/index.jsx',
+    login: 'app/web/page/login/index.jsx',
+    // example: 'app/web/page/example/index.jsx',
+    // async: 'app/web/page/example/async/index.jsx',
+    // 'example/stateless': 'app/web/page/example/stateless.js',
+    // 'example/node': 'app/web/page/example/node.jsx',
+    // 'example/data': 'app/web/page/example/data.jsx',
+    // 'example/hook': 'app/web/page/example/hook.jsx',
+    // 'example/context': 'app/web/page/example/context.jsx'
   },
   loaders: {
     babel: {
