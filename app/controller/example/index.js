@@ -1,4 +1,3 @@
-'use strict';
 module.exports = app => {
   return class ExampleController extends app.Controller {
   

@@ -11,3 +11,40 @@ CREATE TABLE `scene` (
   `createTime` TIMESTAMP DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY(`id`)
 )engine=InnoDB auto_increment=1 DEFAULT charset=utf8 comment='用户表';
+
+
+--- 视频课程表格 ---
+CREATE TABLE `video` (
+  `id` INT NOT NULL auto_increment,
+  `title` VARCHAR(200) DEFAULT NULL COMMENT '视频名称',
+  `cover` VARCHAR(400) DEFAULT NULL COMMENT '视频封面',
+  `author` VARCHAR(64) DEFAULT NULL COMMENT '视频作者',
+  `keywords` VARCHAR(200) DEFAULT NULL COMMENT '关键词',
+  `description` VARCHAR(500) DEFAULT NULL COMMENT '视频简介',
+  `url` VARCHAR(200) DEFAULT NULL COMMENT '链接',
+  `code` VARCHAR(64) DEFAULT NULL COMMENT '链接提取码',
+  `content` TEXT DEFAULT NULL COMMENT '视频介绍',
+  `showCount` INT DEFAULT NULL COMMENT '展示次数',
+  `price` INT DEFAULT NULL COMMENT '价格',
+  `type` INT DEFAULT NULL COMMENT '视频类型',
+  `createTime` TIMESTAMP DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY(`id`)
+)engine=InnoDB auto_increment=1 DEFAULT charset=utf8 comment='视频课程表格';
+
+--- 电子书表格 ---
+CREATE TABLE `ebook` (
+  `id` INT NOT NULL auto_increment,
+  `title` VARCHAR(200) DEFAULT NULL COMMENT '电子书名称',
+  `cover` VARCHAR(400) DEFAULT NULL COMMENT '电子书封面',
+  `author` VARCHAR(64) DEFAULT NULL COMMENT '作者',
+  `keywords` VARCHAR(200) DEFAULT NULL COMMENT '关键词',
+  `description` VARCHAR(500) DEFAULT NULL COMMENT '电子书简介',
+  `content` TEXT DEFAULT NULL COMMENT '电子书介绍',
+  `url` VARCHAR(200) DEFAULT NULL COMMENT '百度链接',
+  `code` VARCHAR(64) DEFAULT NULL COMMENT '链接提取码',
+  `showCount` INT DEFAULT NULL COMMENT '展示次数',
+  `price` INT DEFAULT NULL COMMENT '价格',
+  `type` INT DEFAULT NULL COMMENT '电子书类型',
+  `createTime` TIMESTAMP DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY(`id`)
+)engine=InnoDB auto_increment=1 DEFAULT charset=utf8 comment='电子书表格';

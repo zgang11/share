@@ -1,0 +1,44 @@
+.rank-container {
+  height: 100%;
+  background-color: white;
+  padding: 36px 12px;
+  box-shadow: 0px 6px 12px 0px rgba(55, 55, 55, 0.2);
+  border-radius: 6px;
+}
+.rank-item {
+  display: flex;
+  margin: 18px 0;
+  cursor: pointer;
+}
+.rank-item-cover {
+  border-radius: 6px;
+  width: 30%;
+  height: fit-content;
+}
+.rank-item-right {
+  flex: 1;
+  margin-left: 12px;
+}
+.rank-title {
+  text-align: center;
+  position: absolute;
+  left: calc(50% - 65px);
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: 600;
+  line-height: 30px;
+  top: -8px;
+  width: 129px;
+  height: 43px;
+  background-image: url('../../asset/images/ranking1.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.rank-item-title {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import inlineTest from 'raw-loader!../inline.js';
-export default class HTML extends Component {
-  
+import './index.css';
+
+export default class HTML extends Component {  
   render() {
     const inlineCode = `
       function inlineCodeTest() {
@@ -11,6 +12,7 @@ export default class HTML extends Component {
         return name + '-' + title;
       }
     `;
+
     if(EASY_ENV_IS_NODE) {
       return <html>
         <head>

@@ -3,19 +3,26 @@ import './index.css';
 import HTML from 'component/layout';
 import Header from 'component/header'
 import Footer from 'component/footer'
-import { Layout } from 'antd';
+import { Layout, ConfigProvider } from 'antd';
+import zhCN from 'antd/locale/zh_CN';
 
 const { Content } = Layout;
 
 function LayoutComponent(props) {
-  return <HTML>
-    <Layout className="page-wrapper">
-      <Header />
-      <Content className='main'>
-        {props.children}
-      </Content>
-      <Footer />
-    </Layout>
+  return <HTML {...props.seo}>
+    <ConfigProvider locale={zhCN}>
+      <Layout className="page-wrapper">
+        <Header />
+        <Content>
+          <div className='main'>
+            <div className='main-center'>
+              {props.children}
+            </div>
+          </div>
+          <Footer />
+        </Content>
+      </Layout>
+    </ConfigProvider>
   </HTML>;
 }
 

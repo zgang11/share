@@ -40,11 +40,15 @@ module.exports = app => {
     dir: path.join(app.baseDir, 'public')
   };
 
+  exports.multipart = {
+    mode: 'file',
+  };
+
   exports.keys = '123456';
 
   exports.middleware = [
-    'locals',
-    'access'
+    // 'locals',
+    // 'access'
   ];
 
   exports.view = {
@@ -109,6 +113,15 @@ module.exports = app => {
       db: 0,
     },
   };
+ 
+  exports.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
+  exports.auth = {
+    exclude: [ '/api/wxGet', '/api/qrCode', '/api/wxLogin', '/', '/login', '/home', '/frontweb', '/createVideo', '/updateVideo', '/public'],
+  }
 
   return {
     ...exports,

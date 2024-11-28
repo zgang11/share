@@ -34,8 +34,40 @@ module.exports = (app) => {
         };
       }
     }
+    async wxDealWithMessage(xml) {
+      const { Content, FromUserName } = xml;
+      const [text] = Content;
+      const { ctx } = this;
+      const result = await ctx.service.wx.returnUrl(text);
+      if(result) {
+        const touser = FromUserName[0];
+        const { url, code } = result;
+        this.sendTemplate({url, code, touser});
+      }
+    }
+    async sendTemplate({url, code, touser}){
+      const { ctx } = this;
+      const color = "#173177";
+      const { access_token }  = JSON.parse(await app.redis.get('accessToken'));
+      const _ = `https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=${access_token}`;
+      const result = await ctx.curl(_, {
+        method: "POST",
+        data: {
+          touser,
+          url,
+          template_id: "9QEaxj6KrayVn_p6sKcGsMTcWdhB4tKtsTcsf8xADhY", 
+          data: { url: { value: url, color: "#173177" }, code: { value: code, color } },
+        },
+        dataType: "json",
+        contentType: "json",
+      });
+      if(result.data.errcode !== 0) {
+        console.error('发送模板消息失败');        
+      }
+    }
     async wxGetMessage(ctx) {
       const { signature, timestamp, nonce } = ctx.query;
+      const that = this;
       if(ctx.helper.checkSignature(signature, timestamp, nonce)){
         const xml = ctx.request.body;
         parseString(xml, async function (err, result) {
@@ -51,13 +83,15 @@ module.exports = (app) => {
             if(!res) {
               console.log('更新失败sence失败')
             }
+          } else if(result.xml.MsgType[0] === 'text') {
+            that.wxDealWithMessage(result.xml);
           }
         });
       }
       ctx.body = "success";
     }
     async wxTicket(ctx, scene) {
-      const { access_token } = await app.config.accessToken;
+      const { access_token }  = JSON.parse(await app.redis.get('accessToken'));
       const url = `https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=${access_token}`;
       const result = await ctx.curl(url, {
         method: "POST",
@@ -79,7 +113,6 @@ module.exports = (app) => {
       console.log("获取ticket", ticket);
       const url = `https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=${ticket}`;
       const result = await ctx.curl(url);
-      console.log('-----', result.data);
       const basePath = path.resolve(__dirname, "../../../public/img");
 
       const addResult = await ctx.service.wx.addSence({
@@ -92,7 +125,7 @@ module.exports = (app) => {
       if (addResult) {
         const logo = await sharp(`${basePath}/logo.svg`);
         await sharp(result.data)
-          .resize(500, 500) // 调整logo大小
+          .resize(600, 600) // 调整logo大小
           .composite([
             {
               input: await logo.resize(100, 100).png().toBuffer(),
@@ -137,20 +170,6 @@ module.exports = (app) => {
           code: 1001,
           message: "未查询到扫码",
         };
-      }
-    }
-    async logout(ctx) {
-      try {
-        await ctx.app.redis.del(ctx.getToken);
-        ctx.body = {
-          code: 1000,
-          message: "退出登录成功",
-        }
-      } catch (error) {
-        ctx.body = {
-          code: 1001,
-          message: "退出登录失败",
-        }
       }
     }
   };

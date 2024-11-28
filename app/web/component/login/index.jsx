@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import LogoIcon from '../../asset/images/logo.svg';
 import HTML from 'component/layout';
@@ -7,13 +6,8 @@ import './index.css';
 import { qrCode, wxLogin } from '../../utils/api';
 import { generateRandomString } from '../../utils/helper';
 import { useState } from 'react';
-import { useHistory } from "react-router-dom";
 
-
-const Login = (props) => {
-  const history = useHistory();
-  debugger
-  console.log(useHistory())
+const Login = () => {
   const [code, setCode] = useState(null);
   
   const getQrCode = async (params) => {
@@ -32,7 +26,7 @@ const Login = (props) => {
     if(result.code === 1000) {
       sessionStorage.setItem('token', result.token);
       message.success('登录成功');
-      history.push('/');
+      location.href = '/';
     }
   }
 

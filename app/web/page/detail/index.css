@@ -1,0 +1,122 @@
+.detail-wrapper {
+  width: 100%;
+  display: flex;
+}
+.detail-left {
+  flex: 1;
+  background-color: white;
+  padding: 24px;
+}
+.detail-right {
+  width: 360px;
+  /* background-color: white; */
+  margin-left: 24px;
+  /* padding: 24px; */
+}
+
+.detail-right .recomend-item {
+  display: flex;
+  margin: 6px 0;
+}
+.detail-right .recomend-img{
+  width: 100px;
+  margin-right: 6px;
+}
+.recomend {
+  background-color: white;
+  padding: 24px;
+}
+.recomend-for-you {
+  display: inline-block;
+  margin-bottom: 7px;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+.recomend-title {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 42px;
+}
+
+.recomend-img img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.detail-info {
+  font-size: 12px;
+  color: #9199a1;
+  margin-right: 8px;
+}
+.detail-content {
+  margin-top: 36px;
+}
+
+.detail-content img {
+  width: 100%;
+}
+
+.price {
+  font-size: 20px;
+  color: #f40;
+  margin: 0 6px;
+}
+
+.buy-btn {
+  margin: 12px 0;
+}
+
+.buy-tip {
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.buy-tip-login {
+  position: relative;
+  top: 2px;
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.alert {
+  margin-top: 12px;
+}
+
+.detail-comment {
+  margin: 24px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.upDown-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+}
+
+.upDown-next {
+ text-align: right;
+}
+.upDown {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.upDown-title {
+  color: #161616;
+}
+
+.wx-icon {
+  width: 60%;
+}

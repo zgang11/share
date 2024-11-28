@@ -2,9 +2,33 @@
  background-color: #fff;
  display: flex;
  justify-content: space-between;
+ align-items: center;
  padding: 0 80px;
+ position: fixed;
+ width: 100%;
+ z-index: 10;
+ box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .175);
+}
+.header-menu {
+ width: 60%;
 }
 .logo-icon {
    width: 32px;
    height: 32px;
+}
+.title-icon {
+  height: 20px;
+  margin-left: 6px;
+}
+.active {
+  color: #1677ff !important;
+}
+.active::before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 16px);
+  height: 3px;
+  bottom: -17px;
+  left: 8px;
+  background-color: #1677ff;
 }

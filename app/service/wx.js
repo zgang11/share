@@ -24,4 +24,19 @@ module.exports = class WxService extends egg.Service {
     });
     return result;
   }
+  async returnUrl(code) {
+    const { ctx } = this;
+    const resV = await ctx.model.Video.findOne({
+      where: {
+        code,
+      },
+    });
+    const resE = await ctx.model.Ebook.findOne({
+      where: {
+        code,
+      },
+    });
+    const result = resV || resE;
+    return result;
+  }
 };

@@ -1,4 +1,3 @@
-'use strict';
 // 数据请求 https://www.yuque.com/easy-team/egg-react/asyncdata
 module.exports = app => {
   return class DataController extends app.Controller {

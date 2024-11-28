@@ -1,4 +1,3 @@
-'use strict';
 const mm = require('egg-mock');
 const { 
   webpackReady, 

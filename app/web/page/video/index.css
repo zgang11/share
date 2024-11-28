@@ -1,0 +1,9 @@
+.videoWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ql-editor{
+  min-height: 180px;
+}

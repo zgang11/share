@@ -1,4 +1,3 @@
-'use strict';
 const data = {
   list: [{
     title: `Egg + React 服务端渲染骨架`,

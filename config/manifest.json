@@ -1,9 +1,34 @@
 {
+  "home.css": "/public/css/home.css",
   "home.js": "/public/js/home.js",
+  "login.css": "/public/css/login.css",
   "login.js": "/public/js/login.js",
+  "frontweb.css": "/public/css/frontweb.css",
+  "frontweb.js": "/public/js/frontweb.js",
+  "createVideo.css": "/public/css/createVideo.css",
+  "createVideo.js": "/public/js/createVideo.js",
+  "updateVideo.css": "/public/css/updateVideo.css",
+  "updateVideo.js": "/public/js/updateVideo.js",
+  "detail.css": "/public/css/detail.css",
+  "detail.js": "/public/js/detail.js",
+  "ebook.css": "/public/css/ebook.css",
+  "ebook.js": "/public/js/ebook.js",
+  "createEbook.css": "/public/css/createEbook.css",
+  "createEbook.js": "/public/js/createEbook.js",
+  "updateEbook.css": "/public/css/updateEbook.css",
+  "updateEbook.js": "/public/js/updateEbook.js",
+  "ebookDetail.css": "/public/css/ebookDetail.css",
+  "ebookDetail.js": "/public/js/ebookDetail.js",
   "runtime.js": "/public/js/runtime.js",
   "common.css": "/public/css/common.css",
   "common.js": "/public/js/common.js",
+  "img/wx.png": "/public/img/wx.png",
+  "img/3.jpg": "/public/img/3.jpg",
+  "img/2.jpg": "/public/img/2.jpg",
+  "img/1.jpg": "/public/img/1.jpg",
+  "img/ranking2.png": "/public/img/ranking2.png",
+  "img/ranking3.png": "/public/img/ranking3.png",
+  "img/title.jpg": "/public/img/title.jpg",
   "deps": {
     "home.js": {
       "js": [
@@ -12,7 +37,8 @@
         "/public/js/home.js"
       ],
       "css": [
-        "/public/css/common.css"
+        "/public/css/common.css",
+        "/public/css/home.css"
       ]
     },
     "login.js": {
@@ -22,7 +48,96 @@
         "/public/js/login.js"
       ],
       "css": [
-        "/public/css/common.css"
+        "/public/css/common.css",
+        "/public/css/login.css"
+      ]
+    },
+    "frontweb.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/frontweb.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/frontweb.css"
+      ]
+    },
+    "createVideo.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/createVideo.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/createVideo.css"
+      ]
+    },
+    "updateVideo.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/updateVideo.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/updateVideo.css"
+      ]
+    },
+    "detail.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/detail.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/detail.css"
+      ]
+    },
+    "ebook.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/ebook.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/ebook.css"
+      ]
+    },
+    "createEbook.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/createEbook.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/createEbook.css"
+      ]
+    },
+    "updateEbook.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/updateEbook.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/updateEbook.css"
+      ]
+    },
+    "ebookDetail.js": {
+      "js": [
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/ebookDetail.js"
+      ],
+      "css": [
+        "/public/css/common.css",
+        "/public/css/ebookDetail.css"
       ]
     }
   },

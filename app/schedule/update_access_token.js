@@ -22,6 +22,7 @@ module.exports = app => {
       });
       console.log("定时任务执行开始...", this.ctx.app.config.accessToken);
       this.ctx.app.config.accessToken = result.data;
+      this.ctx.app.redis.set('accessToken', JSON.stringify(result.data), 'EX', app.config.redisExpier);
       console.log("定时任务执行结束...", this.ctx.app.config.accessToken);
     }
   }
