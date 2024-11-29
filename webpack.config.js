@@ -28,14 +28,6 @@ module.exports = {
     },
     less: {
       include: [resolve('app/web'), resolve('node_modules')],
-      options: {
-        javascriptEnabled: true,
-        modifyVars: {
-          'primary-color': '#00b96b',
-          'link-color': '#1DA57A',
-          'border-radius-base': '5px'
-        }
-      }
     }
   },
 };

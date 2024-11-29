@@ -4,7 +4,7 @@ import HTML from 'component/layout';
 import Header from 'component/header'
 import Footer from 'component/footer'
 import { Layout, ConfigProvider } from 'antd';
-import zhCN from 'antd/locale/zh_CN';
+import zhCN from 'antd/es/locale/zh_CN';
 
 const { Content } = Layout;
 

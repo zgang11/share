@@ -31,7 +31,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
     "@babel/plugin-transform-strict-mode": "^7.25.9",
-    "antd": "^5",
+    "antd": "^4",
     "axios": "^0.21.1",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
     "babel-preset-react": "^6.24.1",
