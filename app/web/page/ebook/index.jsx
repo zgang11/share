@@ -54,7 +54,7 @@ const Home = (props) => {
               </div>
               <div className="card-title">{item.title}</div>
               <div className="card-info">
-                {format(item.createTime, "YYYY-M-d H:mm:ss")}
+                {format(new Date(item.createTime), "yyyy-M-d H:mm:ss")}
                 &nbsp;&nbsp;
                 {`访问量:${item.showCount ?? 0}`}
               </div>

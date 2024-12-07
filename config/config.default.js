@@ -37,7 +37,7 @@ module.exports = app => {
 
   exports.static = {
     prefix: '/public/',
-    dir: path.join(app.baseDir, 'public')
+    dir: path.join(app.baseDir, 'app/public')
   };
 
   exports.multipart = {

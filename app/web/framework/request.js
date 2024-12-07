@@ -4,18 +4,20 @@ axios.defaults.timeout = 15000;
 axios.defaults.xsrfHeaderName = 'x-csrf-token';
 axios.defaults.xsrfCookieName = 'csrfToken';
 
-try {
-  const token = sessionStorage && sessionStorage.getItem('token');
-  if (token) {
-      axios.defaults.headers.common['token'] = token;
+const getToken = () => {
+  try {
+    const token = sessionStorage && sessionStorage.getItem('token');
+    if (token) {
+        axios.defaults.headers.common['token'] = token;
+    }
+  } catch (error) {
+    console.log('获取token失败');
   }
-} catch (error) {
-  console.log('获取token失败');
 }
-
 
 export default {
   async post(url, body, locals = {}) {
+    getToken();
     const headers = {};
     if (EASY_ENV_IS_NODE) {
       headers['x-csrf-token'] = locals.csrf;
@@ -25,6 +27,7 @@ export default {
     return res.data;
   },
   async get(url, locals = {}) {
+    getToken();
     const res = await axios.get(`${url}`, locals);
     return res.data;
   }

@@ -11,6 +11,7 @@ module.exports = app => {
       };
     }
     async subscribe() {
+      const { ctx } = this;
       const params = {
         grant_type: "client_credential",
         appid: app.config.wxConfig.appId,
@@ -24,6 +25,23 @@ module.exports = app => {
       this.ctx.app.config.accessToken = result.data;
       this.ctx.app.redis.set('accessToken', JSON.stringify(result.data), 'EX', app.config.redisExpier);
       console.log("定时任务执行结束...", this.ctx.app.config.accessToken);
+
+      // const ebookList = await ctx.model.Ebook.findAll();
+      // const videoList = await ctx.model.Video.findAll();
+      // console.log(code2Url);
+      // ebookList.forEach(item => {
+      //   code2Url[item.code] = {
+      //     code: item.code,
+      //     url: item.url
+      //   };
+      // })
+      // videoList.forEach(item => {
+      //   code2Url[item.code] = {
+      //     code: item.code,
+      //     url: item.url
+      //   };
+      // })
+      // console.log(code2Url);
     }
   }
 }

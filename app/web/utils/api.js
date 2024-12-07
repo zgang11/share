@@ -8,6 +8,14 @@ export function wxLogin(locals = {}) {
   return request.get('/api/wxLogin', locals);
 }
 
+export function register(locals = {}) {
+  return request.post('/api/register', locals);
+}
+
+export function login(locals = {}) {
+  return request.post('/api/login', locals);
+}
+
 export function detail(locals = {}) {
   return request.get('/api/detail', locals);
 }

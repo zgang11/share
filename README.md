@@ -34,6 +34,13 @@ docker run -itd --name mysql-share -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 my
 // 启动redis
 docker pull redis:latest
 docker run -itd --name redis-share -p 6379:6379 redis --requirepass ***
+
+// 启动nginx
+docker run -p 80:80 --name nginx_share_web -v /root/nginx_share_web/nginx.conf:/etc/nginx/nginx.conf -v /root/nginx_share_web/conf.d:/etc/nginx/conf.d -v /root/nginx_share_web/log:/var/log/nginx -d 1ee494ebb83f
+
+// Dockerfile
+docker build -t share:v1.0 ./
+docker run -d -p 7001:7001 --name share_web imageId
 ```
 
 ### 链接

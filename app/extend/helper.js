@@ -1,4 +1,5 @@
 const crypto = require("crypto");
+const dayjs = require('dayjs');
 
 module.exports = {
   checkSignature(signature, timestamp, nonce) {
@@ -23,4 +24,29 @@ module.exports = {
   timestamp() {
     return new Date().getTime();
   },
+  time() {
+    return dayjs().format('YYYY-MM-DD HH:mm:ss');
+  },
+  unPick(source, arr) {
+    if (Array.isArray(arr)) {
+      const obj = {};
+      for (const i in source) {
+        if (!arr.includes(i)) {
+          obj[i] = source[i];
+        }
+      }
+      return obj;
+    }
+  },
+  messageXML({url, code, touser, fromuser, msgId}) {
+    const textXMl = `<xml>  
+                  <ToUserName><![CDATA[${touser}]]></ToUserName>  
+                  <FromUserName><![CDATA[${fromuser}]]></FromUserName>  
+                  <CreateTime>${Date.now()}</CreateTime>  
+                  <MsgType><![CDATA[text]]></MsgType>  
+                  <Content><![CDATA[${url}\n提取码：${code}]]></Content>  
+              </xml>`
+              console.log(textXMl);
+    return textXMl;
+  }
 };

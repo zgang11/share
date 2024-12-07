@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import { Tag, Divider, Card, Button, Alert } from "antd";
 import WXIcon from '../../asset/images/wx.png';
 import "./detail.css";
+import Marquee from 'react-fast-marquee';
 
 const Home = (props) => {
   const { ebook, next, prev, recomendList } = props;
@@ -33,7 +34,7 @@ const Home = (props) => {
             <h3>{ebook.title}</h3>
             <div>
               <span className="detail-info">
-                {format(ebook.createTime, "YYYY-M-d H:mm:ss")}
+                {format(new Date(ebook.createTime), "yyyy-M-d H:mm:ss")}
               </span>
               {ebook?.author ? (
                 <span className="detail-info">作者：{ebook?.author}</span>
@@ -58,12 +59,21 @@ const Home = (props) => {
               }}
             />
             <div className="detail-cover">
-              <img src={ebook?.cover} alt="" />
+              <img style={{ maxWidth: "80%" }} src={ebook?.cover} alt="" />
             </div>
             <div className="detail-content">
               <div dangerouslySetInnerHTML={{ __html: ebook.content }}></div>
             </div>
             <Card>
+              <Alert
+                style={{marginBottom: '14px'}}
+                banner
+                message={
+                  <Marquee pauseOnHover gradient={false}>
+                    由于网络延迟，若未收到回复，可再次发送以获取下载链接！！！
+                  </Marquee>
+                }
+              />
               登录或搜索「保持分享」关注微信公众号，，回复 <span style={{fontWeight: "bold"}}>{ ebook.code }</span> 即可获取下载链接。
               <img className="wx-icon" src={WXIcon} />
             </Card>

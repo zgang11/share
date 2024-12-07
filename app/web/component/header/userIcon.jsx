@@ -42,7 +42,7 @@ function HeaderComponent(props) {
     >
       <a onClick={(e) => e.preventDefault()}>
         <Space>
-          <Avatar size="small" style={{ backgroundColor: '#00b96b' }} icon={<UserOutlined />} />
+          <Avatar size="small" style={{ backgroundColor: '#1677ff' }} icon={<UserOutlined />} />
           <DownOutlined />
         </Space>
       </a>

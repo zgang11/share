@@ -6,7 +6,7 @@ module.exports = (app) => {
     async upload() {
       const { ctx } = this;
       const fileData = ctx.request.files[0];
-      const uploadFilePath = path.join(__dirname, "../../../public/upload/");
+      const uploadFilePath = path.join(__dirname, "../../public/");
       const file = await fsPromises.readFile(fileData.filepath);
       // 生成服务端文件名
       const newFileName = ctx.helper.timestamp() + "_" + fileData.filename;
@@ -16,7 +16,7 @@ module.exports = (app) => {
       ctx.body = {
         code: 1000,
         data: {
-          url: "http://" + ctx.host + "/public/" + "/upload/" + newFileName,
+          url: "http://" + ctx.host + "/public/" + newFileName,
         },
         message: "上传成功",
       };

@@ -1,7 +1,7 @@
 CREATE DATABASE share_web;
 USE share_web;
 
---- 用户表 ---
+--- wx用户表 ---
 CREATE TABLE `scene` (
   `id` INT NOT NULL auto_increment,
   `openId` VARCHAR(64) DEFAULT NULL COMMENT '发送方账号（一个OpenID）',
@@ -9,6 +9,19 @@ CREATE TABLE `scene` (
   `qrcodeRandom` VARCHAR(10) DEFAULT NULL COMMENT '获取二维码随机数',
   `qrcodeTime` TIMESTAMP DEFAULT NULL COMMENT '获取二维码时间',
   `createTime` TIMESTAMP DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY(`id`)
+)engine=InnoDB auto_increment=1 DEFAULT charset=utf8 comment='用户表';
+
+--- 用户表 ---
+CREATE TABLE `user` (
+  `id` INT NOT NULL auto_increment,
+  `username` VARCHAR(20) DEFAULT NULL COMMENT '用户名',
+  `password` VARCHAR(64) DEFAULT NULL COMMENT '密码',
+  `avatar` TEXT COMMENT '头像',
+  `phone` VARCHAR(20) DEFAULT NULL COMMENT '电话',
+  `sign` VARCHAR(300) DEFAULT NULL COMMENT '用户签名',
+  `createTime` TIMESTAMP DEFAULT NULL COMMENT '创建时间',
+  `updateTime` TIMESTAMP DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY(`id`)
 )engine=InnoDB auto_increment=1 DEFAULT charset=utf8 comment='用户表';
 

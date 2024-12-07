@@ -2,6 +2,7 @@
 const path = require("path");
 const { parseString } = require("xml2js");
 const sharp = require("sharp");
+const code2Url = {};
 
 module.exports = (app) => {
   return class WxController extends app.Controller {
@@ -34,16 +35,55 @@ module.exports = (app) => {
         };
       }
     }
-    async wxDealWithMessage(xml) {
-      const { Content, FromUserName } = xml;
-      const [text] = Content;
-      const { ctx } = this;
-      const result = await ctx.service.wx.returnUrl(text);
-      if(result) {
-        const touser = FromUserName[0];
-        const { url, code } = result;
-        this.sendTemplate({url, code, touser});
+    async wxGetMessage(ctx) {
+      const { signature, timestamp, nonce } = ctx.query;
+      const that = this;
+      if(ctx.helper.checkSignature(signature, timestamp, nonce)){
+        const xml = ctx.request.body;
+        parseString(xml, async function (err, result) {
+          if (err) {
+            console.error("解析XML时出错:", err);
+          }
+          console.log("解析XML:", result);
+          if(result.xml.MsgType[0] === 'text') {
+            that.wxDealWithMessage(result.xml);
+          }
+          if(result.xml.Ticket) {
+            const res = await ctx.service.wx.updateSence({
+              openId: result.xml.FromUserName[0],
+              scene: result.xml.EventKey[0],
+            })
+            if(!res) {
+              console.log('更新失败sence失败')
+            }
+          }
+        });
       }
+    }
+    async wxDealWithMessage(xml) {
+      const { ctx } = this;
+      const { Content, FromUserName, ToUserName, MsgId} = xml;
+      const touser = FromUserName[0];
+      const fromuser = ToUserName[0];
+      const [text] = Content;
+      console.log("code2Url:", code2Url);
+      if(code2Url[text]) {
+        const { url, code } = code2Url[text];
+        this.sendMessage({url, code, touser, fromuser});
+      } else {
+        const result = await ctx.service.wx.returnUrl(text);
+        if(result) {
+          code2Url[text] = {
+            url: result.url,
+            code: result.code,
+          };
+        }
+      }
+    }
+    sendMessage(params) {
+      const { ctx } = this;
+      ctx.type = 'application/xml';  
+      ctx.body = ctx.helper.messageXML(params)
     }
     async sendTemplate({url, code, touser}){
       const { ctx } = this;
@@ -65,45 +105,26 @@ module.exports = (app) => {
         console.error('发送模板消息失败');        
       }
     }
-    async wxGetMessage(ctx) {
-      const { signature, timestamp, nonce } = ctx.query;
-      const that = this;
-      if(ctx.helper.checkSignature(signature, timestamp, nonce)){
-        const xml = ctx.request.body;
-        parseString(xml, async function (err, result) {
-          if (err) {
-            console.error("解析XML时出错:", err);
-          }
-          console.log("解析XML:", result);
-          if(result.xml.Ticket) {
-            const res = await ctx.service.wx.updateSence({
-              openId: result.xml.FromUserName[0],
-              scene: result.xml.EventKey[0],
-            })
-            if(!res) {
-              console.log('更新失败sence失败')
-            }
-          } else if(result.xml.MsgType[0] === 'text') {
-            that.wxDealWithMessage(result.xml);
-          }
-        });
-      }
-      ctx.body = "success";
-    }
     async wxTicket(ctx, scene) {
-      const { access_token }  = JSON.parse(await app.redis.get('accessToken'));
-      const url = `https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=${access_token}`;
-      const result = await ctx.curl(url, {
-        method: "POST",
-        data: {
-          expire_seconds: 604800, //有效时间
-          action_name: "QR_STR_SCENE", //类型
-          action_info: { scene: { scene_str: scene } }, //场景值，我用的是随机
-        },
-        dataType: "json",
-        contentType: "json",
-      });
-      return result.data;
+      try {
+        const { access_token }  = JSON.parse(await app.redis.get('accessToken'));
+        const url = `https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=${access_token}`;
+        console.log("获取ticket URL", url);
+        const result = await ctx.curl(url, {
+          method: "POST",
+          data: {
+            expire_seconds: 604800, //有效时间
+            action_name: "QR_STR_SCENE", //类型
+            action_info: { scene: { scene_str: scene } }, //场景值，我用的是随机
+          },
+          dataType: "json",
+          contentType: "json",
+        });
+        return result.data;
+      } catch(error) {
+        console.log(error);
+        return null;
+      }
     }
     async qrCode(ctx) {
       const { qrcodeRandom, qrcodeTime } = ctx.query;
@@ -112,8 +133,9 @@ module.exports = (app) => {
       const { ticket } = res;
       console.log("获取ticket", ticket);
       const url = `https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=${ticket}`;
+      console.log("获取二维码URL", url);
       const result = await ctx.curl(url);
-      const basePath = path.resolve(__dirname, "../../../public/img");
+      const basePath = path.resolve(__dirname, "../../web/asset/images");
 
       const addResult = await ctx.service.wx.addSence({
         qrcodeRandom,

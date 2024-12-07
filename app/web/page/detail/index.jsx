@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import { Tag, Divider, Card, Button, Alert } from "antd";
 import "./index.css";
 import WXIcon from '../../asset/images/wx.png';
+import Marquee from 'react-fast-marquee';
 
 const Home = (props) => {
   const { video, next, prev, recomendList } = props;
@@ -37,7 +38,7 @@ const Home = (props) => {
             <h3>{video.title}</h3>
             <div>
               <span className="detail-info">
-                {format(video.createTime, "YYYY-M-d H:mm:ss")}
+                {format(new Date(video.createTime), "yyyy-M-d H:mm:ss")}
               </span>
               {video.author ? (
                 <span className="detail-info">作者：{video.author}</span>
@@ -78,8 +79,17 @@ const Home = (props) => {
               </div>
             </Card> */}
             <Card>
+              <Alert
+                style={{marginBottom: '14px'}}
+                banner
+                message={
+                  <Marquee pauseOnHover gradient={false}>
+                    由于网络延迟，若未收到回复，可再次发送以获取下载链接！！！
+                  </Marquee>
+                }
+              />
               <div className="buy-tip">
-                登录或搜索「保持分享」关注微信公众号，回复 <span style={{fontWeight: "bold"}}>{ video.code }</span> 即可获取下载链接。
+                扫描或搜索「保持分享」关注微信公众号，回复 <span style={{fontWeight: "bold"}}>{ video.code }</span> 即可获取下载链接。
               </div>
               <img className="wx-icon" src={WXIcon} />
             </Card>

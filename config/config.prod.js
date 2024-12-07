@@ -6,8 +6,9 @@ module.exports = app => {
   const userConfig = {
     // myAppName: 'egg',
     salt: 'zhanggang',
-    redisExpier: 60 * 60 * 24,
+    redisExpier: 60 * 60 * 2,
   };
+  const host = "8.152.222.173";
 
   exports.accessToken = null;
 
@@ -37,7 +38,7 @@ module.exports = app => {
 
   exports.static = {
     prefix: '/public/',
-    dir: path.join(app.baseDir, 'public')
+    dir: [path.join(app.baseDir, 'public'), path.join(app.baseDir, 'app/public')]
   };
 
   exports.multipart = {
@@ -64,8 +65,8 @@ module.exports = app => {
 
   exports.wxConfig = {
     token: 'Z123456d',
-    appId: 'wxeb145bdebe1d18c8',
-    appsecret: '20ff033df50a3e3e15880d5d64bb7c25',
+    appId: 'wx57381f3f017632d5',
+    appsecret: 'a7b58c1e7d92229246f8122c87491398',
   }
 
   exports.security = {
@@ -76,7 +77,7 @@ module.exports = app => {
 
   exports.mysql = {
     client: {
-      host: '127.0.0.1',
+      host,
       port: '3306',
       user: 'root',
       password,
@@ -90,7 +91,7 @@ module.exports = app => {
 
   exports.sequelize = {
     dialect: 'mysql',
-    host: '127.0.0.1',
+    host,
     port: '3306',
     username: 'root',
     password,
@@ -108,7 +109,7 @@ module.exports = app => {
   exports.redis = {
     client: {
       port: 6379, // Redis port
-      host: '127.0.0.1', // Redis host
+      host, // Redis host
       password: 'shualeecode1314_CFZY',
       db: 0,
     },

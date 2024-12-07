@@ -29,6 +29,8 @@ module.exports = app => {
   router.get('/api/qrCode', controller.wx.index.qrCode);
   router.get('/api/wxLogin', controller.wx.index.wxLogin);
 
+  router.post('/api/register', controller.user.index.register);
+  router.post('/api/login', controller.user.index.login);
   router.get('/api/detail', controller.user.index.detail);
   router.get('/api/logout', controller.user.index.logout);
 
