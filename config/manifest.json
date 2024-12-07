@@ -1,104 +1,144 @@
 {
-  "home.js": "/public/js/home.4007d4e7.js",
-  "login.js": "/public/js/login.63e3c054.js",
-  "frontweb.js": "/public/js/frontweb.ae56a705.js",
-  "createVideo.js": "/public/js/createVideo.442eaa42.js",
-  "updateVideo.js": "/public/js/updateVideo.062135a3.js",
-  "detail.js": "/public/js/detail.42aa6390.js",
-  "ebook.js": "/public/js/ebook.716700c5.js",
-  "createEbook.js": "/public/js/createEbook.347a510b.js",
-  "updateEbook.js": "/public/js/updateEbook.cf3b6e31.js",
-  "ebookDetail.js": "/public/js/ebookDetail.66a8a4ea.js",
-  "runtime.js": "/public/js/runtime.78e78c1e.js",
-  "common.js": "/public/js/common.560a6d97.js",
-  "img/wx.png": "/public/img/wx.c049356d.png",
-  "img/3.jpg": "/public/img/3.6be8a887.jpg",
-  "img/2.jpg": "/public/img/2.10cbf26e.jpg",
-  "img/1.jpg": "/public/img/1.2db29f36.jpg",
-  "img/ranking1.png": "/public/img/ranking1.802834fe.png",
-  "img/ranking2.png": "/public/img/ranking2.02cf8f7c.png",
-  "img/ranking3.png": "/public/img/ranking3.737b0a05.png",
-  "img/title.jpg": "/public/img/title.7a84a0a6.jpg",
+  "home.css": "/public/css/home.css",
+  "home.js": "/public/js/home.js",
+  "login.css": "/public/css/login.css",
+  "login.js": "/public/js/login.js",
+  "frontweb.css": "/public/css/frontweb.css",
+  "frontweb.js": "/public/js/frontweb.js",
+  "createVideo.css": "/public/css/createVideo.css",
+  "createVideo.js": "/public/js/createVideo.js",
+  "updateVideo.css": "/public/css/updateVideo.css",
+  "updateVideo.js": "/public/js/updateVideo.js",
+  "detail.css": "/public/css/detail.css",
+  "detail.js": "/public/js/detail.js",
+  "ebook.css": "/public/css/ebook.css",
+  "ebook.js": "/public/js/ebook.js",
+  "createEbook.css": "/public/css/createEbook.css",
+  "createEbook.js": "/public/js/createEbook.js",
+  "updateEbook.css": "/public/css/updateEbook.css",
+  "updateEbook.js": "/public/js/updateEbook.js",
+  "ebookDetail.css": "/public/css/ebookDetail.css",
+  "ebookDetail.js": "/public/js/ebookDetail.js",
+  "runtime.js": "/public/js/runtime.js",
+  "common.css": "/public/css/common.css",
+  "common.js": "/public/js/common.js",
+  "img/wx.png": "/public/img/wx.png",
+  "img/3.jpg": "/public/img/3.jpg",
+  "img/2.jpg": "/public/img/2.jpg",
+  "img/1.jpg": "/public/img/1.jpg",
+  "img/ranking2.png": "/public/img/ranking2.png",
+  "img/ranking3.png": "/public/img/ranking3.png",
+  "img/title.jpg": "/public/img/title.jpg",
   "deps": {
     "home.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/home.4007d4e7.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/home.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/home.css"
+      ]
     },
     "login.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/login.63e3c054.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/login.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/login.css"
+      ]
     },
     "frontweb.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/frontweb.ae56a705.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/frontweb.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/frontweb.css"
+      ]
     },
     "createVideo.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/createVideo.442eaa42.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/createVideo.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/createVideo.css"
+      ]
     },
     "updateVideo.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/updateVideo.062135a3.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/updateVideo.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/updateVideo.css"
+      ]
     },
     "detail.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/detail.42aa6390.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/detail.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/detail.css"
+      ]
     },
     "ebook.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/ebook.716700c5.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/ebook.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/ebook.css"
+      ]
     },
     "createEbook.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/createEbook.347a510b.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/createEbook.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/createEbook.css"
+      ]
     },
     "updateEbook.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/updateEbook.cf3b6e31.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/updateEbook.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/updateEbook.css"
+      ]
     },
     "ebookDetail.js": {
       "js": [
-        "/public/js/runtime.78e78c1e.js",
-        "/public/js/common.560a6d97.js",
-        "/public/js/ebookDetail.66a8a4ea.js"
+        "/public/js/runtime.js",
+        "/public/js/common.js",
+        "/public/js/ebookDetail.js"
       ],
-      "css": []
+      "css": [
+        "/public/css/common.css",
+        "/public/css/ebookDetail.css"
+      ]
     }
   },
   "info": {
